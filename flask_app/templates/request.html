@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Blood Bank</title>
+    <link rel="stylesheet", href="../static/styles/donation.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,700,800" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/scripts/request.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../static/images/logo.png">
+                <div class="title">Central Blood Bank Management</div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <div class="nav">
+                        <ul>
+                            <a href="{{ url_for('home') }}"><li>Home</li></a>
+                            <a href="{{ url_for('register_donor') }}"><li>Donor</li></a>
+                            <a href="{{ url_for('stock') }}"><li>Blood Stock</li></a>
+                            <a href="{{ url_for('hospital_request') }}"><li class="active">Requests</li></a>
+                        </ul>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="main-container">
+        <div class="left-container">
+            <ul>
+                <a href="{{ url_for('login') }}"><li>Login</li></a>
+                <a href="{{ url_for('register_donor') }}"><li>Register Donor</li></a>
+                <a href="{{ url_for('hospital_request') }}"><li class="active-side">Make Requests</li></a>
+                <a href="{{ url_for('req_history') }}"><li>Requests History</li></a>
+                <a href="{{ url_for('stock') }}"><li>Blood Stock</li></a>
+            </ul>
+        </div>
+        <div class="right-container">
+            <div class="form-container">
+                <h2>Hospital Request</h2>
+                <div class="result"></div>
+                <form method="post" id="request_form">
+                    <div class="form-group">
+                        <label for="quantity">Quantity Required:</label>
+                        <input min="1" max="5" type="number" id="quantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hospital">Hospital:</label>
+                        <select id="hospital" required>
+                            <option value="" disabled selected>Select Hospital</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient">Patient:</label>
+                        <select id="patient" required disabled>
+                            <option value="" disabled selected>Select Hospital</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="blood_group">Blood Group:</label>
+                        <input id="blood_group" required disabled></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Patient Status:</label>
+                        <input type="text" id="status" required disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Request">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

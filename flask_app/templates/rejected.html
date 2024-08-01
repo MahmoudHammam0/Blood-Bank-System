@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Blood Bank</title>
+    <link rel="stylesheet", href="../static/styles/success.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,700,800" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/scripts/rejected.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../static/images/logo.png">
+                <div class="title">Central Blood Bank Management</div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li class="home">Welcome {{ current_user.name }}</li>
+                    <li class="donation active" data-id="{{ donor_id }}">Donate</li>
+                    <li class="logout">Logout</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="main-container">
+        <div class="left-container">
+            <ul>
+                <li>Name: <br>{{ current_user.name }}</li>
+                <li>City: <br>{{ current_user.city.name }}</li>
+                <li>National ID: <br>{{ current_user.national_id }}</li>
+                <li>Email: <br>{{ current_user.email }}</li>
+                <li>Donation History: <br>{{ current_user.donations | length }}</li>
+                <li class="blood_group">Blood Group: <br></li>
+            </ul>
+        </div>
+        <div class="right-container">
+            <div class="result">
+                <img src="../static/images/red_x.png">
+                <h2>Donation rejected</h2>
+                <h4>Sorry {{ current_user.name }} we can't accept your donation</h4>
+            </div>
+            <div class="form-container">
+                <div class="line">
+                    <div class="info">Donor Name:</div>
+                    <div class="content">{{ current_user.name }}</div>
+                </div>
+                <div class="line">
+                    <div class="info">Blood Bank:</div>
+                    <div class="content" id="blood_bank"></div>
+                </div>
+                <div class="line">
+                    <div class="info">Blood Group:</div>
+                    <div class="content blood_group"></div>
+                </div>
+                <div class="line">
+                    <div class="info">Donation Date:</div>
+                    <div class="content" id="date"></div>
+                </div>
+                <div class="line">
+                    <div class="info">Reasons for rejection:</div>
+                    <div class="content" id="reasons"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

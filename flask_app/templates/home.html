@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Blood Bank</title>
+    <link rel="stylesheet", href="../static/styles/home.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,700,800" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/scripts/home.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../static/images/logo.png">
+                <div class="title">Central Blood Bank Management</div>
+            </div>
+        {% if not current_user.is_authenticated %}
+            <nav class="nav">
+                <ul>
+                    <a href="{{ url_for('home') }}"><li class="active">Home</li></a>
+                    <a href="{{ url_for('register_donor') }}"><li>Donor</li></a>
+                    <a href="{{ url_for('stock') }}"><li>Blood Stock</li></a>
+                    <a href="{{ url_for('hospital_request') }}"><li>Requests</li></a>
+                </ul>
+            </nav>
+        {% else %}
+            <div class="nav">
+                <ul>
+                    <li class="active">Welcome {{ current_user.name }}</li>
+                    <li class="donation" data-id="{{ current_user.id }}">Donate</li>
+                    <li class="logout">Logout</li>
+                </ul>
+            </div>
+        {% endif %}
+        </div>
+    </header>
+    <div class="main-container">
+        <div class="content1">Welcome to</div>
+        <div class="content2">The Central Blood Bank</div>
+    </div>
+    <div class="login">
+        <div class="right-container">
+        </div>
+        <div class="left-container">
+            Blood Bank
+            <div class="description">
+                Register donors, accept donations and manage stock
+            </div>
+        {% if not current_user.is_authenticated %}
+            <button class="bb-btn">Donate</button>
+        {% else %}
+            <button class="h-btn">Donate</button>
+        {% endif %}
+        </div>
+        <div class="right-container">
+            Hospital
+            <div class="description">
+                Make requests, track requests and view available stock
+            </div>
+        {% if not current_user.is_authenticated %}
+            <button class="req-btn">Requests</button>
+        {% else %}
+            <button class="req-btn" disabled>Requests</button>
+        {% endif %}
+        </div>
+    </div>
+</body>
+</html>

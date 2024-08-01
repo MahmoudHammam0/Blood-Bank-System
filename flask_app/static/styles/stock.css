@@ -1,0 +1,148 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+}
+
+.header-container {
+    background-color: #ffffff;
+    padding: 5px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #ddd;
+}
+
+.logo {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 55px;
+    height: 45px;
+    margin-right: 15px;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.title {
+    font-size: 26px;
+    color: #a33434;
+    font-family: "Merriweather";
+    font-weight: 500;
+}
+
+.title:hover {
+    color: #f15858;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav ul {
+    display: flex;
+    padding-right: 25px;
+    margin-right: 26px;
+}
+
+.nav li {
+    list-style: none;
+    font-size: 16px;
+    font-family: "Merriweather";
+    font-weight: 500;
+    margin-left: 30px;
+}
+
+.nav li:hover {
+    cursor: pointer;
+    color: #f15858;
+}
+
+.active {
+    color: #f15858;
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+}
+
+.right-container {
+    width: 85%;
+}
+
+.left-container {
+    background-color: #660000;
+    width: 15%;
+    padding: 30px 0px;
+    border-right: 3px solid #ddd;
+}
+
+.left-container ul {
+    margin: 0;
+    padding: 0;
+    position: sticky;
+    top: 140px;
+}
+
+.left-container li {
+    color: #fff;
+    list-style: none;
+    padding: 20px 0;
+    margin: 30px 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.left-container li:hover {
+    cursor: pointer;
+    background-color: #753030;
+}
+
+.form-container {
+    padding: 30px 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info {
+    font-size: 18px;
+    font-family: "Merriweather";
+    font-weight: 400;
+    margin: 10px 0;
+    display: block;
+}
+
+.type-icon {
+    padding: 5px;
+}
+
+.type-icon img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.active-side {
+    background-color: #753030;
+}

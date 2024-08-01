@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Blood Bank</title>
+    <link rel="stylesheet", href="../static/styles/donor.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,700,800" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/scripts/donor.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../static/images/logo.png">
+                <div class="title">Central Blood Bank Management</div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <a href="{{ url_for('home') }}"><li>Home</li></a>
+                    <a href="{{ url_for('register_donor') }}"><li class="active">Donor</li></a>
+                    <a href="{{ url_for('stock') }}"><li>Blood Stock</li></a>
+                    <a href="{{ url_for('hospital_request') }}"><li>Requests</li></a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="main-container">
+        <div class="left-container">
+            <ul>
+                <a href="{{ url_for('login') }}"><li>Login</li></a>
+                <a href="{{ url_for('register_donor') }}"><li class="active-side">Register Donor</li></a>
+                <a href="{{ url_for('hospital_request') }}"><li>Make Requests</li></a>
+                <a href="{{ url_for('req_history') }}"><li>Requests History</li></a>
+                <a href="{{ url_for('stock') }}"><li>Blood Stock</li></a>
+            </ul>
+        </div>
+        <div class="right-container">
+            <div class="form-container">
+                <h2>Register Donor</h2>
+                <h4 class="error"></h4>
+                <form method="post" id="donor_form">
+                    <div class="form-group">
+                        <label for="name">Fullname:</label>
+                        <input id="name" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="national_id">National ID:</label>
+                        <input id="national_id" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input id="email" type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <select id="city" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="blood_group">Blood Group:</label>
+                        <select id="blood_group" required></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Register">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
